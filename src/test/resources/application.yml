@@ -1,0 +1,15 @@
+# Configuración SOLO para tests: H2 en memoria (no requiere PostgreSQL).
+spring:
+  datasource:
+    url: jdbc:h2:mem:biblioteca_test;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+jwt:
+  secret: clave-solo-para-pruebas-0123456789-abcdefghijklmnopqrstuvwxyz
+  expiration: 3600000
