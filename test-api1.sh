@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-BASE_URL="http://localhost:8080/api/v1"
+BASE_URL="http://localhost:8081/api/v1"
 ADMIN_EMAIL="admin@biblioteca.com"
 ADMIN_PASS="Admin123*"
 USER_EMAIL="lector@biblioteca.com"
@@ -51,7 +51,7 @@ NUEVO_LIBRO_RESP=$(curl -s -X POST "$BASE_URL/libros" \
     "isbn": "978-0134685991",
     "titulo": "Effective Java 3rd Edition",
     "autor": "Joshua Bloch",
-    "categoria": "Programación",
+    "categoria": "Programacion",
     "stockTotal": 10,
     "stockDisponible": 10
   }')

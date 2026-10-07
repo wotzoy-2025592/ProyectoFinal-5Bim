@@ -26,9 +26,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        crearUsuarioSiNoExiste("Administrador", "admin@biblioteca.com", "Admin123!", Rol.ADMIN);
-        crearUsuarioSiNoExiste("Bibliotecario", "bibliotecario@biblioteca.com", "Bibliotecario123!", Rol.BIBLIOTECARIO);
-        crearUsuarioSiNoExiste("Lector de Prueba", "lector@biblioteca.com", "Lector123!", Rol.LECTOR);
+        crearUsuarioSiNoExiste("Administrador", "admin@biblioteca.com", "Admin123*", Rol.ADMIN);
+        crearUsuarioSiNoExiste("Bibliotecario", "bibliotecario@biblioteca.com", "Bibliotecario123*", Rol.BIBLIOTECARIO);
+        crearUsuarioSiNoExiste("Lector de Prueba", "lector@biblioteca.com", "Lector123*", Rol.LECTOR);
 
         if (libroRepository.count() == 0) {
             libroRepository.saveAll(List.of(
