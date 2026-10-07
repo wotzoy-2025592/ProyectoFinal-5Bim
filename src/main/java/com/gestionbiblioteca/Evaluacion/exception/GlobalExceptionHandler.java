@@ -55,7 +55,18 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ErrorResponse> handleUnreadable(HttpMessageNotReadableException ex, HttpServletRequest req) {
-        return build(HttpStatus.BAD_REQUEST, "MALFORMED_REQUEST", "El cuerpo de la petición es inválido o está mal formado", req);
+        log.error("ERROR DESERIALIZANDO REQUEST en {}", req.getRequestURI(), ex);
+
+        String message = ex.getMostSpecificCause() != null
+                ? ex.getMostSpecificCause().getMessage()
+                : ex.getMessage();
+
+        return build(
+                HttpStatus.BAD_REQUEST,
+                "MALFORMED_REQUEST",
+                message,
+                req
+        );
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
